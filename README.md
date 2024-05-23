@@ -12,7 +12,7 @@ C\+\+版本：C\+\+17
 
 第三方库：boost、MySQL、Connector/C++
 
-依赖：pthread、mysqlcpponn
+依赖：mysqlcpponn
 
 
 
