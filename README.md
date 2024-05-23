@@ -62,13 +62,13 @@ int main(){
 #include <ttw/ttw.h>
 using namespace ttw;
 int main(){
-     //Config::GetConfigInstance(); ///需要获取一下，配置才会生效
-     auto config = Config::SetConfigInstance("yourfile"); ///如果自定义路径，可以进行Set
-	 int threads = config->getConfigValue("threads", 1);  //后面的是默认值，如果配置文件中没有，则返回默认值
-     http::HttpServer::ptr server(new http::HttpServer(threads, "ttw"));
-     std::string host =  config->getConfigValue<std::string>("host", "127.0.0.1");
-     int port = config->getConfigValue("port", 8000);
-    server->bind(host, port);
+     	//Config::GetConfigInstance(); ///需要获取一下，配置才会生效
+     	auto config = Config::SetConfigInstance("yourfile"); ///如果自定义路径，可以进行Set
+	int threads = config->getConfigValue("threads", 1);  //后面的是默认值，如果配置文件中没有，则返回默认值
+     	http::HttpServer::ptr server(new http::HttpServer(threads, "ttw"));
+     	std::string host =  config->getConfigValue<std::string>("host", "127.0.0.1");
+     	int port = config->getConfigValue("port", 8000);
+    	server->bind(host, port);
     //....
 }
 
@@ -78,7 +78,7 @@ int main(){
 
 ```cpp
 	//...
-	static logger = LogManage::GetLogManage()->getLogger("root");
+	static auto logger = LogManage::GetLogManage()->getLogger("root");
 	sd->addServlet("/index", [&](ttw::http::HttpRequest::ptr req
                                 ,http::HttpResponse::ptr rsp
                                 ,http::HttpSession::ptr session){
@@ -185,8 +185,8 @@ int main(){
                         sessiondata->addSessionData(session_val);
                         sessiondata->setSessionData(session_val, vec);
                         rsp->setCookie("yoursessionkey", session_val, time(0) + (30 * 60 * 1000) - 8 * 60 * 60, "yourpath", "yourdomain");
-						return 0;
-					}
+			return 0;
+	}
 ```
 
 ## 参考
