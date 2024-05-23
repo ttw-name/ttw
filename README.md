@@ -50,7 +50,7 @@ int main(){
                 });
     server->start();
     //while(1); 
-    server->jion();
+    server->join();
     return 0;
 }
 
